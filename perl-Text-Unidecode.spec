@@ -1,19 +1,18 @@
 %define upstream_name    Text-Unidecode
 %define upstream_version 0.04
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 4
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	5
 
-Summary:    No summary found
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Represent Unicode data in US-ASCII characters
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
 
-
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 It often happens that you have non-Roman text data in Unicode, but you
@@ -36,24 +35,38 @@ Unidecode's ability to transliterate is limited by two factors:
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+%__perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README ChangeLog
 %{_mandir}/man3/*
 %perl_vendorlib/*
 
 
+%changelog
+* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 0.40.0-4mdv2012.0
++ Revision: 765762
+- rebuilt for perl-5.14.2
+
+* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 0.40.0-3
++ Revision: 764288
+- rebuilt for perl-5.14.x
+
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.40.0-2
++ Revision: 655236
+- rebuild for updated spec-helper
+
+* Fri Nov 06 2009 Jérôme Quelin <jquelin@mandriva.org> 0.40.0-1mdv2011.0
++ Revision: 461712
+- import perl-Text-Unidecode
+
+
+* Fri Nov 06 2009 cpan2dist 0.04-1mdv
+- initial mdv release, generated with cpan2dist
