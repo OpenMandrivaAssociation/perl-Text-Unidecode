@@ -1,18 +1,16 @@
-%define upstream_name    Text-Unidecode
-%define upstream_version 0.04
-
-Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+%define modname	Text-Unidecode
+%define modver	0.04
 
 Summary:	Represent Unicode data in US-ASCII characters
-License:	GPL+ or Artistic
+Name:		perl-%{modname}
+Version:	%perl_convert_version %{modver}
+Release:	6
+License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
-
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
+BuildRequires:	perl-devel
 
 %description
 It often happens that you have non-Roman text data in Unicode, but you
@@ -32,7 +30,7 @@ some other writing system. (See the example in the synopsis.)
 Unidecode's ability to transliterate is limited by two factors:
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -qn %{modname}-%{modver}
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
@@ -46,27 +44,6 @@ Unidecode's ability to transliterate is limited by two factors:
 
 %files
 %doc README ChangeLog
+%{perl_vendorlib}/*
 %{_mandir}/man3/*
-%perl_vendorlib/*
 
-
-%changelog
-* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 0.40.0-4mdv2012.0
-+ Revision: 765762
-- rebuilt for perl-5.14.2
-
-* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 0.40.0-3
-+ Revision: 764288
-- rebuilt for perl-5.14.x
-
-* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.40.0-2
-+ Revision: 655236
-- rebuild for updated spec-helper
-
-* Fri Nov 06 2009 Jérôme Quelin <jquelin@mandriva.org> 0.40.0-1mdv2011.0
-+ Revision: 461712
-- import perl-Text-Unidecode
-
-
-* Fri Nov 06 2009 cpan2dist 0.04-1mdv
-- initial mdv release, generated with cpan2dist
