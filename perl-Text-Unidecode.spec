@@ -1,10 +1,10 @@
 %define modname	Text-Unidecode
-%define modver	0.04
+%define modver 1.22
 
 Summary:	Represent Unicode data in US-ASCII characters
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	12
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
@@ -46,4 +46,3 @@ Unidecode's ability to transliterate is limited by two factors:
 %doc README ChangeLog
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
-

@@ -1,2 +1,4 @@
+removed_sources:
+  Text-Unidecode-0.04.tar.gz: baf3e2f90011e25fb10cb4d47ade53cc3977b3af
 sources:
-  "Text-Unidecode-0.04.tar.gz": baf3e2f90011e25fb10cb4d47ade53cc3977b3af
+  Text-Unidecode-1.22.tar.gz: 845dd22ea0614d5692a6bffaddc1a0e4e8c61ae3
