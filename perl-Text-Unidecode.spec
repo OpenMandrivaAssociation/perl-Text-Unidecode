@@ -34,16 +34,16 @@ Unidecode's ability to transliterate is limited by two factors:
 %setup -qn %{modname}-%{modver}
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor
-%make
+%{__perl} Makefile.PL INSTALLDIRS=vendor
+%make_build
 
 %check
-%make test
+%make_build test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README ChangeLog
-%{perl_vendorlib}/*
+%{perl_vendorlib}/Text*
 %{_mandir}/man3/*
