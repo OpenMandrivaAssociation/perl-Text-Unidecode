@@ -1,14 +1,12 @@
 %define modname	Text-Unidecode
-%define modver 1.23
-
 Summary:	Represent Unicode data in US-ASCII characters
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	4
+Version:	1.23
+Release:	5
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{modname}-%{modver}.tar.gz
+Url:		https://metacpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl(Test)
@@ -32,7 +30,7 @@ some other writing system. (See the example in the synopsis.)
 Unidecode's ability to transliterate is limited by two factors:
 
 %prep
-%setup -qn %{modname}-%{modver}
+%setup -qn %{modname}-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
