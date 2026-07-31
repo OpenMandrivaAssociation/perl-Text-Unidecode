@@ -1,8 +1,8 @@
 %define modname	Text-Unidecode
 Summary:	Represent Unicode data in US-ASCII characters
 Name:		perl-%{modname}
-Version:	1.23
-Release:	5
+Version:	1.30
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/%{modname}
@@ -30,7 +30,7 @@ some other writing system. (See the example in the synopsis.)
 Unidecode's ability to transliterate is limited by two factors:
 
 %prep
-%setup -qn %{modname}-%{version}
+%setup -qn %{modname}-%{version} -n Text-Unidecode-1.30
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
